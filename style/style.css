@@ -1,0 +1,74 @@
+/* Start dropdown animation */
+@media (min-width: 768px) {
+    .animate {
+      animation-duration: 0.3s;
+      -webkit-animation-duration: 0.3s;
+      animation-fill-mode: both;
+      -webkit-animation-fill-mode: both;
+    }
+}
+@keyframes slideIn {
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+}
+@-webkit-keyframes slideIn {
+    0% {
+        -webkit-transform: transform;
+        -webkit-opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        -webkit-opacity: 1;
+    }
+    0% {
+        -webkit-transform: translateY(1rem);
+        -webkit-opacity: 0;
+    }
+}
+.slideIn {
+    -webkit-animation-name: slideIn;
+    animation-name: slideIn;
+}
+/* End dropdown animation */
+
+/* Start card animation */
+.card {
+    height: 10rem;
+    transition: .3s;
+    position: relative;
+}
+.card:hover {
+    height: 12rem;
+}
+.btn-pilih-server {
+    visibility: hidden;
+}
+.card:hover .btn-pilih-server {
+    visibility: visible;
+}
+/* End card animation */
+
+/* Start body Style */
+p {
+    font-size: 15px;
+}
+/* End body style */
+
+/* Start content style */
+.pilihserver {
+    padding: 0 16px 16px 16px;
+}
+.container-content {
+    margin-top: 80px;
+}
+/* End content style */
