@@ -11,6 +11,7 @@ include 'config/config.php';
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Agent - Dashboard</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="style/reset.css"> -->
         <link rel="stylesheet" href="style/style.css">
     </head>
     <body>
@@ -49,7 +50,7 @@ include 'config/config.php';
                                         <input type="checkbox" class="form-check-input" value="5" name="filter[]">
                                         <label for="checkbox6" class="form-check-label ms-2">Tipe 5</label>
                                     </div>
-                                    <input type="submit" class="mt-3 ms-4 btn btn-dark" value="Filter">
+                                    <input type="submit" class="mt-3 ms-4 btn btn-dark" value="Pilih">
                                 </form>
 
                             </div>
@@ -68,7 +69,7 @@ include 'config/config.php';
                     if (in_array('semua', $filter) || in_array($tipeServer, $filter)) {
                 ?>
                 <div class="col-md-2">
-                    <div class="card mb-2" data-tipe="<?php echo $row['tipe_server']; ?>">
+                    <div class="card" data-tipe="<?php echo $row['tipe_server']; ?>">
                         <div class="card-header text-center fw-bold bg-dark text-white fs-6"><?php echo $row['nama_server']; ?></div>
                         <div class="card-body">
                             <p class="card-text" style="font-size: 13px; line-height: 6px;">ID : <?php echo $row['id']; ?></p>
@@ -85,7 +86,7 @@ include 'config/config.php';
                 } ?>
             </div>
             
-            <div class="dropdown pb-3">
+            <div class="dropdown">
                 <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Action</button>
                 <ul class="dropdown-menu animate slideIn">
                     <li><a href="#" class="dropdown-item">Opsi 1</a></li>
@@ -94,7 +95,10 @@ include 'config/config.php';
                 </ul>
             </div>
         </div>
-
+        
+        <!-- <footer class="container">
+            <h5>Made it with ❤</h5>
+        </footer> -->
         
         <!-- <script src="script/script.js" type="text/javascript" ></script> --> <!-- * Dump script, maybe usefull for next day? -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-KyZXEAg3QhqLMpG8r+Y9db1c8sZIqnrw5/16W7v9QCk=" crossorigin="anonymous"></script>
