@@ -11,6 +11,7 @@ if (mysqli_connect_error()) {
 
 // Mengambil data dari database
 $dataServer = mysqli_query($koneksi, "SELECT * FROM data_server");
+$commandServer = mysqli_query($koneksi, "SELECT * FROM command_server");
 
 // Mengambil filter dari URL
 $filter = isset($_GET['filter']) ? $_GET['filter'] : array();
