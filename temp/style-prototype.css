@@ -1,0 +1,95 @@
+/* Start dropdown animation */
+@media (min-width: 768px) {
+    .animate {
+      animation-duration: 0.3s;
+      -webkit-animation-duration: 0.3s;
+      animation-fill-mode: both;
+      -webkit-animation-fill-mode: both;
+    }
+}
+@keyframes slideIn {
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+}
+@-webkit-keyframes slideIn {
+    0% {
+        -webkit-transform: transform;
+        -webkit-opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        -webkit-opacity: 1;
+    }
+    0% {
+        -webkit-transform: translateY(1rem);
+        -webkit-opacity: 0;
+    }
+}
+.slideIn {
+    -webkit-animation-name: slideIn;
+    animation-name: slideIn;
+}
+/* End dropdown animation */
+
+/* Start card animation */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: relative;
+}
+.card {
+    margin: 2rem 0 0 0;
+    flex: 0 0 calc(20% - 1rem);
+    height: 10rem;
+    transition: .3s;
+    position: relative;
+    z-index: 0;
+}
+.card:hover {
+    margin-top: 0;
+    height: 12rem;
+    z-index: 1;
+    transform: translateY(1rem);
+}
+.btn-pilih-server {
+    visibility: hidden;
+}
+.card:hover .btn-pilih-server {
+    visibility: visible;
+}
+.card-container:hover .card {
+    z-index: 0;
+}
+.card-container:hover .card:hover {
+    z-index: 1;
+}
+/* End card animation */
+
+/* Start body Style */
+p {
+    font-size: 15px;
+}
+/* End body style */
+
+/* Start content style */
+.pilihserver {
+    padding: 0 16px 16px 16px;
+}
+.container-content {
+    margin-top: 50px;
+}
+.row {
+    margin-bottom: 20px;
+}
+/* End content style */
