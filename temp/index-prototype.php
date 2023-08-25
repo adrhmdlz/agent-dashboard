@@ -79,8 +79,11 @@ include '../config/config.php';
                             <p class="card-text" style="font-size: 13px; line-height: 6px;">Type : <?php echo $row['tipe_server']; ?></p>
                             <p class="card-text" style="font-size: 13px; line-height: 6px;">Backup : <?php echo $row['tanggal_backup']; ?></p>
                         </div>
+                        <div class="checked-card"></div>
                         <div class="pilihserver mx-auto">
-                            <button type="button" class="btn btn-outline-dark btn-sm btn-pilih-server" id="tombol-<?php echo $cardCounter; ?>">Choose server</button>
+                            <input type="checkbox" class="cb-pilih-server" name="check" id="tombol-<?php echo $cardCounter; ?>">
+                            <label for="tombol-<?php echo $cardCounter; ?>" class="cb-pilih-server">Choose server</label>
+                            <!-- <button type="button" class="btn btn-outline-dark btn-sm btn-pilih-server" id="tombol-<?php echo $cardCounter; ?>">Choose server</button> -->
                         </div>
                     </div>
                 </div>
@@ -115,25 +118,6 @@ include '../config/config.php';
                     <button type="submit" class="btn btn-outline-dark dropdown-item" id="submitButton">Execute</button>
                     <button type="button" class="btn btn-outline-secondary dropdown-item" id="closeButton" data-bs-dismiss="dropdown">Close</button>
                 </div>
-
-                <!-- <ul class="dropdown-menu dropdown-grid animate slideIn" aria-labelledby="radioDropdown">
-                    <?php
-                    $perintahCounter = 1;
-                    while ($perintah = mysqli_fetch_assoc($commandServer)) {
-                    ?>
-                    <li class="col-md-3 mb-2">
-                        <label class="dropdown-item">
-                        <input type="radio" name="radioOption" value="option<?php echo $perintahCounter; ?>"> <?php echo $perintah['command']?>
-                        </label>
-                    </li>
-                    <?php
-                        $perintahCounter++;
-                    }
-                    ?>
-                    <div class="dropdown-divider"></div>
-                    <button class="btn dropdown-item" type="submit" id="submitButton">Execute</button>
-                    <button class="btn dropdown-item" type="button" id="closeButton" data-bs-dismiss="dropdown">Close</button>
-                </ul> -->
             </div>
         </div>
         
