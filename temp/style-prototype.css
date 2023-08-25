@@ -1,3 +1,7 @@
+/* Color palette */
+/* dark-color: #212529; */
+/* secondary-color: #9FA6B2; */
+
 /* Start dropdown animation */
 @media (min-width: 768px) {
     .animate {
@@ -41,7 +45,7 @@
 }
 /* End dropdown animation */
 
-/* Start card animation */
+/* Start card animation & style */
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -93,3 +97,58 @@ p {
     margin-bottom: 20px;
 }
 /* End content style */
+
+.pembungkus-action {
+    padding-left: 30px;
+    padding-right: 10px;
+    width: 1000px;
+}
+
+h5.text-center {
+    margin: 0;
+}
+
+.action-container {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 23%;
+    margin: 5px;
+    height: 45px;
+    vertical-align: top;
+    font-size: 13px;
+    text-align: center;
+}
+.label-class {
+    border: 1px solid #9FA6B2;;
+    border-radius: 25px;
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 10px 10px 30px 10px;
+    cursor: pointer;
+    opacity: .5;
+    transition: all .5s ease-in-out;
+    &:hover, &:focus, &:active {
+        border: 1px solid #212529;
+        color: #212529;
+    }
+}
+input[type="radio"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+input[type="radio"]:active ~ label {
+    opacity: 1;
+}
+input[type="radio"]:checked ~ label {
+    opacity: 1;
+    border: 1px solid #212529;
+    background-color: #212529;
+    color: #ffffff;
+}
+
+.dropdown-divider {
+    margin-top: 40px;
+}
