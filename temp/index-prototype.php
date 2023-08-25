@@ -66,7 +66,7 @@ include '../config/config.php';
                 <?php 
                 $cardCounter = 1;
                 while ($row = mysqli_fetch_assoc($dataServer)) { 
-                    // Mengecek apakah tipe server ada dalam filter atau checkbox "semua" terpilih
+                    // Mengecek apakah tipe server ada dalam filter atau pilihan checkbox "semua" terpilih
                     $tipeServer = $row['tipe_server'];
                     if (in_array('semua', $filter) || in_array($tipeServer, $filter)) {
                 ?>
@@ -86,21 +86,54 @@ include '../config/config.php';
                 </div>
                 <?php 
                         $cardCounter++;
-                    }
-                } 
+                    };
+                };
                 ?>
             </div>
-            
+        </div>
+
+        <div class="container mt-3">
             <div class="dropdown">
-                <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Action</button>
-                <div class="container">
-                    <ul class="dropdown-menu animate slideIn">
-                        <h5>Select the action</h5>
-                        <li><a href="#">Opsi 1</a></li>
-                        <li><a href="#">Opsi 2</a></li>
-                        <li><a href="#">Opsi 3</a></li>
-                    </ul>
+                <button class="btn btn-dark dropdown-toggle" type="button" id="radioDropdown" data-bs-toggle="dropdown" aria-expanded="false">Select an Action</button>
+                <div class="dropdown-menu animate slideIn" aria-labelledby="radioDropdown">
+                    <h5 class="text-center">Please select the option</h5>
+                    <div class="pembungkus-action">
+                        <?php
+                        $perintahCounter = 1;
+                        while ($perintah = mysqli_fetch_assoc($commandServer)) {
+                        ?>  
+                        <div class="action-container">
+                            <input type="radio" name="action" id="action-<?php echo $perintahCounter; ?>" value="action-<?php echo $perintahCounter; ?>">
+                            <label class="label-class" id="label-action" for="action-<?php echo $perintahCounter; ?>"><?php echo $perintah['command']?></label>
+                        </div>
+                        <?php
+                            $perintahCounter++;
+                        }
+                        ?>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <button type="submit" class="btn btn-outline-dark dropdown-item" id="submitButton">Execute</button>
+                    <button type="button" class="btn btn-outline-secondary dropdown-item" id="closeButton" data-bs-dismiss="dropdown">Close</button>
                 </div>
+
+                <!-- <ul class="dropdown-menu dropdown-grid animate slideIn" aria-labelledby="radioDropdown">
+                    <?php
+                    $perintahCounter = 1;
+                    while ($perintah = mysqli_fetch_assoc($commandServer)) {
+                    ?>
+                    <li class="col-md-3 mb-2">
+                        <label class="dropdown-item">
+                        <input type="radio" name="radioOption" value="option<?php echo $perintahCounter; ?>"> <?php echo $perintah['command']?>
+                        </label>
+                    </li>
+                    <?php
+                        $perintahCounter++;
+                    }
+                    ?>
+                    <div class="dropdown-divider"></div>
+                    <button class="btn dropdown-item" type="submit" id="submitButton">Execute</button>
+                    <button class="btn dropdown-item" type="button" id="closeButton" data-bs-dismiss="dropdown">Close</button>
+                </ul> -->
             </div>
         </div>
         
@@ -108,7 +141,7 @@ include '../config/config.php';
             <h5>Made it with ❤</h5>
         </footer> -->
         
-        <!-- <script src="script/script.js" type="text/javascript" ></script> --> <!-- * Dump script, maybe usefull for next day? -->
+        <script src="script-prototype.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-KyZXEAg3QhqLMpG8r+Y9db1c8sZIqnrw5/16W7v9QCk=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     </body>
