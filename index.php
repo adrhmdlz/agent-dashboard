@@ -1,6 +1,6 @@
 <?php
 
-include 'config/config.php';
+include './config/config.php';
 
 ?>
 
@@ -12,14 +12,14 @@ include 'config/config.php';
         <title>Agent - Dashboard</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
         <!-- <link rel="stylesheet" href="style/reset.css"> -->
-        <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="./style/style.css">
     </head>
     <body>
         
         <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
             <div class="container">
                 <!-- Brand -->
-                <a class="navbar-brand text-white" href="index.php?filter%5B%5D=semua">Dashboard</a>
+                <a class="navbar-brand text-white" href="index-prototype.php?filter%5B%5D=semua">Dashboard</a>
                 <div class="navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
@@ -66,7 +66,7 @@ include 'config/config.php';
                 <?php 
                 $cardCounter = 1;
                 while ($row = mysqli_fetch_assoc($dataServer)) { 
-                    // Mengecek apakah tipe server ada dalam filter atau checkbox "semua" terpilih
+                    // Mengecek apakah tipe server ada dalam filter atau pilihan checkbox "semua" terpilih
                     $tipeServer = $row['tipe_server'];
                     if (in_array('semua', $filter) || in_array($tipeServer, $filter)) {
                 ?>
@@ -79,8 +79,11 @@ include 'config/config.php';
                             <p class="card-text" style="font-size: 13px; line-height: 6px;">Type : <?php echo $row['tipe_server']; ?></p>
                             <p class="card-text" style="font-size: 13px; line-height: 6px;">Backup : <?php echo $row['tanggal_backup']; ?></p>
                         </div>
+                        <div class="checked-card"></div>
                         <div class="pilihserver mx-auto">
-                            <button type="button" class="btn btn-outline-dark btn-sm btn-pilih-server" id="tombol-<?php echo $cardCounter; ?>">Choose server</button>
+                            <input type="checkbox" class="cb-pilih-server" name="check" id="tombol-<?php echo $cardCounter; ?>">
+                            <label for="tombol-<?php echo $cardCounter; ?>" class="cb-pilih-server">Choose server</label>
+                            <!-- <button type="button" class="btn btn-outline-dark btn-sm btn-pilih-server" id="tombol-<?php echo $cardCounter; ?>">Choose server</button> -->
                         </div>
                     </div>
                 </div>
@@ -90,30 +93,30 @@ include 'config/config.php';
                 };
                 ?>
             </div>
-            
-            <div class="container mt-3">
-                <div class="dropdown">
-                    <button class="btn btn-dark dropdown-toggle" type="button" id="radioDropdown" data-bs-toggle="dropdown" aria-expanded="false">Select an Action</button>
-                    <div class="dropdown-menu animate slideIn" aria-labelledby="radioDropdown">
-                        <h5 class="text-center">Please select the option</h5>
-                        <div class="pembungkus-action">
-                            <?php
-                            $perintahCounter = 1;
-                            while ($perintah = mysqli_fetch_assoc($commandServer)) {
-                            ?>  
-                            <div class="action-container">
-                                <input type="radio" name="action" id="action-<?php echo $perintahCounter; ?>" value="action-<?php echo $perintahCounter; ?>">
-                                <label class="label-class" id="label-action" for="action-<?php echo $perintahCounter; ?>"><?php echo $perintah['command']?></label>
-                            </div>
-                            <?php
-                                $perintahCounter++;
-                            }
-                            ?>
+        </div>
+
+        <div class="container mt-3">
+            <div class="dropdown">
+                <button class="btn btn-dark dropdown-toggle" type="button" id="radioDropdown" data-bs-toggle="dropdown" aria-expanded="false">Select an Action</button>
+                <div class="dropdown-menu animate slideIn" aria-labelledby="radioDropdown">
+                    <h5 class="text-center">Please select the option</h5>
+                    <div class="pembungkus-action">
+                        <?php
+                        $perintahCounter = 1;
+                        while ($perintah = mysqli_fetch_assoc($commandServer)) {
+                        ?>  
+                        <div class="action-container">
+                            <input type="radio" name="action" id="action-<?php echo $perintahCounter; ?>" value="action-<?php echo $perintahCounter; ?>">
+                            <label class="label-class" id="label-action" for="action-<?php echo $perintahCounter; ?>"><?php echo $perintah['command']?></label>
                         </div>
-                        <div class="dropdown-divider"></div>
-                        <button type="submit" class="btn btn-outline-dark dropdown-item" id="submitButton">Execute</button>
-                        <button type="button" class="btn btn-outline-secondary dropdown-item" id="closeButton" data-bs-dismiss="dropdown">Close</button>
+                        <?php
+                            $perintahCounter++;
+                        }
+                        ?>
                     </div>
+                    <div class="dropdown-divider"></div>
+                    <button type="submit" class="btn btn-outline-dark dropdown-item" id="submitButton">Execute</button>
+                    <button type="button" class="btn btn-outline-secondary dropdown-item" id="closeButton" data-bs-dismiss="dropdown">Close</button>
                 </div>
             </div>
         </div>
@@ -122,7 +125,7 @@ include 'config/config.php';
             <h5>Made it with ❤</h5>
         </footer> -->
         
-        <script src="script/script.js" type="text/javascript" ></script> <!-- * Dump script, maybe usefull for next day? -->
+        <script src="./script/script.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-KyZXEAg3QhqLMpG8r+Y9db1c8sZIqnrw5/16W7v9QCk=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     </body>
